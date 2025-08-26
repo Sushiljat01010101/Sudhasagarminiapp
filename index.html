@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudha Sagar Dairy - Milk Delivery Management</title>
+    <meta name="description" content="Manage your daily milk delivery with Sudha Sagar Dairy">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particle-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-overlay" aria-hidden="true">
+        <div class="loading-spinner">
+            <div class="spinner-rings">
+                <div class="ring ring1"></div>
+                <div class="ring ring2"></div>
+                <div class="ring ring3"></div>
+            </div>
+            <p>Sending request...</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header" role="banner">
+            <div class="logo-container">
+                <div class="logo-wrapper">
+                    <img src="attached_assets/IMG_20250824_221443_1756207982612.jpg" alt="Sudha Sagar Dairy Logo" class="logo-image">
+                    <div class="logo-glow"></div>
+                </div>
+                <div class="brand-text">
+                    <h1 class="brand-title">
+                        <span class="letter">S</span>
+                        <span class="letter">u</span>
+                        <span class="letter">d</span>
+                        <span class="letter">h</span>
+                        <span class="letter">a</span>
+                        <span class="space"> </span>
+                        <span class="letter">S</span>
+                        <span class="letter">a</span>
+                        <span class="letter">g</span>
+                        <span class="letter">a</span>
+                        <span class="letter">r</span>
+                    </h1>
+                    <p class="tagline">
+                        <i class="fas fa-star"></i>
+                        Premium Dairy Products
+                        <i class="fas fa-star"></i>
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <section class="hero-section">
+                <div class="hero-animation">
+                    <div class="floating-milk milk-1">🥛</div>
+                    <div class="floating-milk milk-2">🥛</div>
+                    <div class="floating-milk milk-3">🥛</div>
+                </div>
+                <h2 class="hero-title">Manage Your Daily Milk Delivery</h2>
+                <p class="hero-description">
+                    <i class="fas fa-magic"></i>
+                    Need extra milk tomorrow or want to skip delivery? Let us know with just a few clicks.
+                    <i class="fas fa-magic"></i>
+                </p>
+
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="action-buttons" role="group" aria-labelledby="action-heading">
+                <h3 id="action-heading" class="visually-hidden">Delivery Options</h3>
+                
+                <button 
+                    id="extraMilkBtn" 
+                    class="action-btn extra-milk-btn"
+                    type="button"
+                    aria-describedby="extra-milk-desc">
+                    <div class="btn-background-effect"></div>
+                    <div class="btn-content-wrapper">
+                        <div class="btn-icon-wrapper">
+                            <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                            <div class="btn-ripple"></div>
+                        </div>
+                        <span class="btn-text">
+                            <strong>Tomorrow Extra Milk</strong>
+                            <small id="extra-milk-desc">Request additional milk for tomorrow</small>
+                        </span>
+                        <div class="btn-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </button>
+
+                <button 
+                    id="noMilkBtn" 
+                    class="action-btn no-milk-btn"
+                    type="button"
+                    aria-describedby="no-milk-desc">
+                    <div class="btn-background-effect"></div>
+                    <div class="btn-content-wrapper">
+                        <div class="btn-icon-wrapper">
+                            <i class="fas fa-pause-circle" aria-hidden="true"></i>
+                            <div class="btn-ripple"></div>
+                        </div>
+                        <span class="btn-text">
+                            <strong>Tomorrow No Milk</strong>
+                            <small id="no-milk-desc">Skip milk delivery for tomorrow</small>
+                        </span>
+                        <div class="btn-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </button>
+            </section>
+
+            <!-- Customer Satisfaction Section -->
+            <section class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Fresh Milk</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Service</div>
+                </div>
+            </section>
+
+            <!-- Request History Section -->
+            <section class="request-history" id="requestHistory" style="display: none;">
+                <div class="history-header">
+                    <h3>
+                        <i class="fas fa-history"></i>
+                        Your Recent Requests
+                    </h3>
+                    <button id="clearHistory" class="clear-btn" type="button">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                </div>
+                <div id="historyList" class="history-list">
+                    <!-- Request items will be populated here -->
+                </div>
+                <div class="no-history" id="noHistory">
+                    <i class="fas fa-inbox"></i>
+                    <p>No requests found</p>
+                    <small>Your delivery requests will appear here</small>
+                </div>
+            </section>
+
+            <!-- Show/Hide History Button -->
+            <div class="history-toggle">
+                <button id="historyToggle" class="history-toggle-btn" type="button">
+                    <i class="fas fa-history"></i>
+                    <span>View History</span>
+                    <span class="history-count" id="historyCount">0</span>
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <p>&copy; 2025 Sudha Sagar Dairy. All rights reserved.</p>
+            <p>For support, call: <a href="tel:+919876543210">+91 98765 43210</a></p>
+        </footer>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <button id="closeModal" class="close-btn" type="button" aria-label="Close modal">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            
+            <form id="deliveryForm" class="modal-form" novalidate>
+                <div class="form-group">
+                    <label for="customerName">Full Name <span class="required" aria-label="required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="customerName" 
+                        name="customerName" 
+                        required
+                        aria-describedby="name-error"
+                        maxlength="50">
+                    <div id="name-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number <span class="required" aria-label="required">*</span></label>
+                    <input 
+                        type="tel" 
+                        id="mobileNumber" 
+                        name="mobileNumber" 
+                        required
+                        pattern="[6-9][0-9]{9}"
+                        aria-describedby="mobile-error mobile-help"
+                        maxlength="10"
+                        placeholder="10-digit mobile number">
+                    <small id="mobile-help" class="help-text">Enter 10-digit Indian mobile number</small>
+                    <div id="mobile-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div id="quantityGroup" class="form-group" style="display: none;">
+                    <label for="milkQuantity">Extra Milk Quantity (Litres) <span class="required" aria-label="required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="milkQuantity" 
+                        name="milkQuantity" 
+                        inputmode="decimal"
+                        lang="en"
+                        aria-describedby="quantity-error quantity-help"
+                        placeholder="Type quantity like: 1 litre, 2L, 1.5, two litres, etc.">
+                    <small id="quantity-help" class="help-text">Type milk quantity in any format you like</small>
+                    <div id="quantity-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" id="submitBtn" class="btn btn-primary">
+                        <span class="btn-content">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            Send Request
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-content">
+            <i id="toast-icon" class="toast-icon" aria-hidden="true"></i>
+            <div class="toast-message">
+                <strong id="toast-title"></strong>
+                <p id="toast-text"></p>
+            </div>
+            <button id="toast-close" class="toast-close" type="button" aria-label="Close notification">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
