@@ -10,7 +10,7 @@ const CONFIG = {
     // and retrieved securely from the server-side
     TELEGRAM: {
         BOT_TOKEN: '8414963882:AAHAxN6adnkt5HKV1yXhpGZVpwGv3rNd2yQ',
-        ADMIN_CHAT_ID: '1691680798',
+        ADMIN_CHAT_ID: '8420959852',
         API_URL: 'https://api.telegram.org/bot'
     },
     
